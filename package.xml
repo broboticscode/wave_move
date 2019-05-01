@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<package>
+  <name>wave_move</name>
+  <version>0.1.0</version>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+
+  <export>
+  </export>
+</package>

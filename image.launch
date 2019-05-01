@@ -1,0 +1,9 @@
+<launch>                                                                        
+  <node cwd="node" pkg="image_publisher" type="image_publisher" name="image_publisher"
+        args="/home/tom/Documents/bots/wave_move/0.jpg" >
+    <param name="flip_horizontal" value="false" />
+    <param name="flip_vertical" value="false" />
+    <param name="frame_id" value="my_camera" />
+    <param name="publish_rate" value="1" />
+  </node>
+</launch>
