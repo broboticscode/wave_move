@@ -23,7 +23,7 @@ roslaunch camera.launch
 or run directly from image_publisher
 
 ```
-rosrun image_publisher image_publisher /home/T1000/Documents/code/wave_move/images/0.jpg
+rosrun image_publisher image_publisher /home/T1000/wave_move/images/0.jpg
 ```
 
 ## Topics
