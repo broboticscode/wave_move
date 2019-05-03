@@ -8,7 +8,7 @@ from sensor_msgs.msg import Image
 from keras.models import load_model
 import cv2 as cv2
 
-global_speed=1
+global_speed=0.3
 class AIController:
     def __init__(self):
         rospy.init_node("ai_controller")
@@ -16,16 +16,17 @@ class AIController:
         self.bridge = CvBridge()
 
         # subscribe to images
-        rospy.Subscriber("/image_publisher/image_raw", Image, self.on_image)
-
+        #rospy.Subscriber("/image_publisher/image_raw", Image, self.on_image)
+        rospy.Subscriber("/conde_camera_signalling_panel/image_raw", Image, self.on_image)
         # this subsriber is the safety switch
         #rospy.Subscriber("/vesc/ai", Int8, self.on_ai)
 
         # model is located one dir up
-        self.model = load_model('./driving_net_model.h5')
+        self.model = load_model('./driving_net_model_sim.h5')
         rospy.logwarn("Model successfully loaded")
         # hijack the cmd_vel topic
-        self.teleop_pub = rospy.Publisher('/mobile_base_controller/cmd_vel', Twist, queue_size=10)
+        #self.teleop_pub = rospy.Publisher('/mobile_base_controller/cmd_vel', Twist, queue_size=10)
+        self.teleop_pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
         self.image = None
         self.angular_z = 0
         self.run_nn()
